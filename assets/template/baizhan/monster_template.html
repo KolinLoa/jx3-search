@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="card-container">
+        <header>
+            <h1>👺 百战异闻录 · 本周BOSS</h1>
+            <div class="date-range">📅 周期：{{dateRange}}</div>
+        </header>
+
+        <div class="monster-grid">
+            {{#monsters}}
+            <div class="monster-item">
+                <div class="level-badge">{{level}}阶</div>
+                
+                <div class="boss-avatar" data-color="{{color}}">
+                    {{firstChar}}
+                </div>
+                
+                <div class="boss-info">
+                    <div class="boss-name">{{name}}</div>
+                    <div class="skill-tags">
+                        {{#skill}}
+                        <span class="skill-item">{{.}}</span>
+                        {{/skill}}
+                    </div>
+                </div>
+            </div>
+            {{/monsters}}
+        </div>
+
+        <footer>
+            💡 提示：本数据由 JX3API 驱动，实际请以游戏内为准。
+        </footer>
+    </div>
+
+    <script>
+        document.querySelectorAll('.boss-avatar').forEach(el => {
+            const color = el.getAttribute('data-color');
+            if (color) el.style.backgroundColor = color;
+        });
+    </script>
+</body>
+</html>

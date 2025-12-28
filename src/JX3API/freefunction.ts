@@ -1,5 +1,3 @@
-// src/JX3API/freeapi.ts
-
 import { Context, Session, h } from 'koishi'
 import JX3API from 'jx3api-ts'
 import { EffectiveConfig } from '../bind/types'
@@ -12,7 +10,7 @@ declare module 'koishi' {
   }
 }
 
-export function applyFreeApi(ctx: Context) {
+export function applyFreeFunction(ctx: Context) {
   /** 通用获取配置 */
   const getCfg = async (session: Session): Promise<EffectiveConfig> => {
     return await (ctx.runtime.getEffectiveConfig as any)(session)
