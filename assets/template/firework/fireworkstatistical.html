@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        :root {
+            --jx3-gold: #c8a064;
+            --jx3-red: #a52a2a;
+            --paper: #f4ece0;
+        }
+        body { 
+            margin: 0; padding: 20px; background: #1a1a1a; display: inline-block;
+            font-family: "Noto Serif SC", "Source Han Serif CN", serif; 
+        }
+        .wrapper {
+            width: 750px;
+            background-color: var(--paper);
+            border: 10px double #3d352d;
+            padding: 40px;
+            position: relative;
+            box-shadow: 0 0 30px rgba(0,0,0,0.8);
+        }
+        .header {
+            text-align: center;
+            border-bottom: 2px solid var(--jx3-gold);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+        }
+        .title { font-size: 36px; color: #5d4632; font-weight: bold; letter-spacing: 4px; }
+        .summary {
+            text-align: center;
+            font-size: 18px;
+            color: var(--jx3-red);
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+        .list-container { display: flex; flex-direction: column; gap: 15px; }
+
+        .stat-item {
+            background: rgba(255, 255, 255, 0.4);
+            border-left: 4px solid var(--jx3-gold);
+            padding: 15px 20px;
+            position: relative;
+        }
+        .fire-desc {
+            font-size: 17px;
+            color: #333;
+            line-height: 1.6;
+        }
+        .high-light { color: #b03060; font-weight: bold; border-bottom: 1px solid #d2b48c; }
+        
+        .meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: #888;
+            margin-top: 10px;
+            font-family: sans-serif;
+        }
+        .map-tag { color: var(--jx3-gold); font-weight: bold; }
+
+        .stamp {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            width: 90px;
+            height: 90px;
+            border: 3px solid var(--jx3-red);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--jx3-red);
+            font-weight: bold;
+            transform: rotate(15deg);
+            opacity: 0.2;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <div class="title">🌸 {{TITLE}}</div>
+        </div>
+        <div class="summary">
+            近期全服共收录燃放记录：{{COUNT}} 次
+        </div>
+        <div class="list-container">
+            </div>
+        <div class="stamp">万家<br>灯火</div>
+    </div>
+
+    <script type="text/template" id="TPL_STAT">
+        <div class="stat-item">
+            <div class="fire-desc">
+                侠士 <span class="high-light">{{SENDER}}</span> 在 <span class="map-tag">{{MAP}}</span> 
+                向 <span class="high-light">{{RECEIVE}}</span> 燃放了 [{{FW_NAME}}]。
+            </div>
+            <div class="meta">
+                <span>📍 {{SERVER}}</span>
+                <span>🕒 {{TIME}}</span>
+            </div>
+        </div>
+    </script>
+</body>
+</html>

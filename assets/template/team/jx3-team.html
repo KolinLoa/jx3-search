@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>/* CSS_PLACEHOLDER */</style>
+</head>
+<body>
+    <div class="card">
+        <div class="header">
+            <div class="title">{{TITLE}}</div>
+            <div class="meta">
+                <span>时间：<b>{{TIME}}</b></span>
+                <span>团长：<b>{{LEADER}}</b></span>
+                <span>进度：<b>{{COUNT}}/25</b></span>
+            </div>
+        </div>
+        <div class="grid">
+            {{GRID_CONTENT}}
+        </div>
+        <div class="footer">
+            团号：{{LOCAL_ID}} | 报名：报名 {{LOCAL_ID}} [游戏名] [心法]
+        </div>
+    </div>
+
+    <div class="slot {{TYPE}}">
+        <div class="num">{{INDEX}}</div>
+        <div class="role-icon">
+            <img src="{{ICON_BASE64}}">
+            <span class="role-badge">{{LABEL}}</span>
+        </div>
+        <div class="member-info">
+            <div class="name">{{NICKNAME}}</div>
+            <div class="qq">QQ: {{USER_ID}}</div>
+            <div class="role-text">{{OFFICIAL_NAME}}</div>
+        </div>
+    </div>
+    <div class="slot empty">
+        <div class="num">{{INDEX}}</div>
+        <div class="empty-text">待入队</div>
+    </div>
+    </body>
+</html>

@@ -2,6 +2,8 @@ import { Context, Session, h } from 'koishi'
 import JX3API from 'jx3api-ts'
 import { EffectiveConfig } from '../bind/types'
 
+export const name = 'jx3-freefunction'
+
 declare module 'koishi' {
   interface Context {
     runtime: {

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        :root {
+            --hq: #1d73c9; /* 浩气蓝 */
+            --er: #c12c1f; /* 恶人红 */
+            --bg: #f4ece0;
+        }
+        body { 
+            margin: 0; 
+            padding: 20px;
+            display: inline-block; 
+            background: #222;
+            /* Linux 兼容性字体库：优先 Noto Serif SC，回退到系统衬线体 */
+            font-family: "Noto Serif SC", "Source Han Serif CN", serif; 
+        }
+        .wrapper {
+            width: 700px;
+            padding: 40px;
+            background: var(--bg);
+            border: 6px double #8b5a2b;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .header {
+            text-align: center;
+            border-bottom: 2px solid #8b5a2b;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+        }
+        .server-info { font-size: 28px; color: #5d4632; font-weight: bold; letter-spacing: 2px; }
+        .list-container { display: flex; flex-direction: column; gap: 15px; }
+        
+        /* 拍卖单项 */
+        .item {
+            display: flex;
+            align-items: center;
+            background: rgba(255,255,255,0.4);
+            border-left: 6px solid #ccc;
+            padding: 15px 20px;
+            position: relative;
+            transition: all 0.3s;
+        }
+        .item.浩气盟 { border-left-color: var(--hq); background: rgba(29, 115, 201, 0.05); }
+        .item.恶人谷 { border-left-color: var(--er); background: rgba(193, 44, 31, 0.05); }
+
+        .item-main { flex: 1; }
+        .item-name { font-size: 22px; color: #222; font-weight: bold; margin-bottom: 6px; }
+        .item-meta { font-size: 14px; color: #666; font-family: sans-serif; }
+        
+        .item-price {
+            text-align: right;
+            font-size: 24px;
+            color: #b22222;
+            font-weight: 900;
+            font-family: 'Georgia', serif;
+        }
+        .camp-tag {
+            position: absolute;
+            right: 20px; top: -1px;
+            font-size: 11px;
+            padding: 2px 8px;
+            color: white;
+            border-radius: 0 0 4px 4px;
+            font-weight: bold;
+        }
+        .浩气盟 .camp-tag { background: var(--hq); }
+        .恶人谷 .camp-tag { background: var(--er); }
+
+        /* 印章 */
+        .stamp {
+            position: absolute;
+            bottom: 30px;
+            right: 50px;
+            width: 90px;
+            height: 90px;
+            border: 3px double #b22222;
+            border-radius: 50%;
+            color: #b22222;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            transform: rotate(-20deg);
+            opacity: 0.4;
+            font-size: 16px;
+            text-align: center;
+            line-height: 1.2;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <div class="server-info">📜 {{SERVER}} · 阵营拍卖清单</div>
+        </div>
+        <div class="list-container">
+            </div>
+        <div class="stamp">{{SERVER}}<br>实查账目</div>
+    </div>
+
+    <script type="text/template" id="TPL_RECORD">
+        <div class="item {{CAMP_NAME}}">
+            <div class="camp-tag">{{CAMP_NAME}}</div>
+            <div class="item-main">
+                <div class="item-name">{{NAME}}</div>
+                <div class="item-meta">👤 {{ROLE}} | 🕒 {{TIME}}</div>
+            </div>
+            <div class="item-price">{{AMOUNT}}</div>
+        </div>
+    </script>
+</body>
+</html>

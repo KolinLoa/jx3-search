@@ -8,6 +8,7 @@ import { applyWebSocket } from './websocket/websocket'
 import { applyHandler } from './websocket/handler'
 import { applyJx3boxMacro } from './JX3box/macro'
 import { applyJx3boxAdventure } from './JX3box/adventure'
+import { applyJx3Team } from './team/team'
 
 
 
@@ -67,6 +68,9 @@ export function apply(ctx: Context, config: ConfigType) {
 
   // 7. 加载剑三魔盒奇遇攻略指令
   applyJx3boxAdventure(ctx)
+
+  // 8. 加载开团模块
+  applyJx3Team(ctx)
 
   ctx.logger('jx3-search').info('剑网3查询插件已就绪（已启用全局 5s 指令冷却）')
 }

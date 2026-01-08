@@ -1,0 +1,99 @@
+:root {
+    --tank-color: #ff4d4f;
+    --healer-color: #52c41a;
+    --dps-color: #1890ff;
+    --bg-dark: rgba(20, 20, 20, 0.98);
+}
+
+body {
+    font-family: "Noto Sans CJK SC", "Microsoft YaHei", sans-serif;
+    background: transparent;
+    color: #f0f0f0;
+    padding: 20px;
+    width: 820px;
+    margin: 0;
+}
+
+.card {
+    background: var(--bg-dark);
+    border: 2px solid #4a3a2a;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+}
+
+.header {
+    text-align: center;
+    border-bottom: 1px solid rgba(230, 126, 34, 0.3);
+    padding-bottom: 20px;
+    margin-bottom: 25px;
+}
+
+.header .title {
+    margin: 0;
+    color: #e67e22;
+    font-size: 32px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.meta {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 12px;
+    color: #cca47e;
+    font-size: 15px;
+}
+
+.meta b { color: #fff; }
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+}
+
+.slot {
+    background: rgba(45, 45, 45, 0.8);
+    border: 1px solid #3d3d3d;
+    border-radius: 10px;
+    padding: 12px 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    min-height: 115px;
+}
+
+.slot.tank { border: 1px solid var(--tank-color); }
+.slot.healer { border: 1px solid var(--healer-color); }
+.slot.dps { border: 1px solid var(--dps-color); }
+
+.role-icon { position: relative; margin-bottom: 10px; }
+.role-icon img { width: 48px; height: 48px; border-radius: 6px; background: #000; }
+
+.role-badge {
+    position: absolute; bottom: -4px; right: -4px;
+    font-size: 10px; padding: 1px 4px; border-radius: 3px;
+    color: #fff; font-weight: bold;
+}
+.tank .role-badge { background: var(--tank-color); }
+.healer .role-badge { background: var(--healer-color); }
+.dps .role-badge { background: var(--dps-color); }
+
+.name {
+    font-size: 15px; font-weight: bold; color: #ffcc00; /* 游戏昵称突出显示 */
+    max-width: 130px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+
+.qq { font-size: 10px; color: #666; font-family: monospace; }
+.role-text { font-size: 11px; color: #cca47e; margin-top: 4px; }
+
+.slot.empty {
+    border: 1px dashed #444; background: rgba(255, 255, 255, 0.02);
+    opacity: 0.5; justify-content: center;
+}
+
+.num { position: absolute; top: 5px; left: 8px; font-size: 11px; color: #444; }
+.footer { text-align: center; margin-top: 25px; font-size: 12px; color: #555; border-top: 1px solid #333; padding-top: 10px; }

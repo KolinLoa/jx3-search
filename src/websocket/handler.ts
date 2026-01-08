@@ -1,6 +1,8 @@
 import { Context, h } from 'koishi'
 import type { Config } from '../config'
 
+export const name = 'jx3-websocket-handler'
+
 declare module 'koishi' {
   interface Events {
     'jx3/ws-message'(raw: any): void

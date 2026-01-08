@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        :root {
+            --jx3-gold: #c8a064;
+            --jx3-pink: #d17ea8;
+            --jx3-purple: #a18cd1;
+            --text-main: #3d352d;
+            --paper-bg: #f4ece0;
+        }
+        body { 
+            margin: 0; padding: 20px; background: #1a1a1a; display: inline-block;
+            font-family: "Noto Serif SC", "Source Han Serif CN", serif; 
+        }
+        .wrapper {
+            width: 720px;
+            background-color: var(--paper-bg);
+            /* 使用边框花纹装饰 */
+            border: 12px solid #3d352d;
+            border-image: double;
+            padding: 40px;
+            position: relative;
+            box-shadow: 0 0 30px rgba(0,0,0,0.8);
+        }
+        /* 模拟宣纸纹理 */
+        .wrapper::before {
+            content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background: url('https://www.transparenttextures.com/patterns/handmade-paper.png');
+            opacity: 0.5; pointer-events: none;
+        }
+        .header {
+            text-align: center;
+            border-bottom: 2px solid var(--jx3-gold);
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+        }
+        .title { font-size: 34px; color: #8b4513; font-weight: bold; letter-spacing: 5px; }
+
+        .list-container { display: flex; flex-direction: column; gap: 20px; }
+
+        .fire-record-item {
+            background: rgba(255, 255, 255, 0.4);
+            border: 1px solid rgba(200, 160, 100, 0.3);
+            padding: 20px;
+            position: relative;
+            /* 侧边水墨装饰 */
+            border-left: 5px solid var(--jx3-gold);
+        }
+        
+        .fire-info {
+            font-size: 18px;
+            color: var(--text-main);
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+        .name-bright {
+            color: #b03060;
+            font-weight: bold;
+            border-bottom: 1px solid var(--jx3-gold);
+        }
+        .fw-name {
+            color: #8a2be2;
+            font-weight: bold;
+            padding: 0 5px;
+        }
+
+        .fire-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            color: #7a6e5a;
+            border-top: 1px dashed rgba(0,0,0,0.1);
+            padding-top: 10px;
+        }
+
+        /* 底部古风印章 */
+        .jx3-stamp {
+            position: absolute;
+            bottom: 20px;
+            right: 40px;
+            width: 80px;
+            height: 80px;
+            border: 3px double #b22222;
+            border-radius: 4px;
+            color: #b22222;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            transform: rotate(-10deg);
+            opacity: 0.3;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <div class="title">🌸 {{TITLE}}</div>
+        </div>
+        <div class="list-container">
+            </div>
+        <div class="jx3-stamp">江湖<br>实录</div>
+    </div>
+
+    <script type="text/template" id="TPL_FIRE">
+        <div class="fire-record-item">
+            <div class="fire-info">
+                江湖传闻，<span class="name-bright">{{SENDER}}</span> 侠士在 <strong>{{MAP}}</strong> 
+                对 <span class="name-bright">{{RECEIVE}}</span> 侠士执手深情，
+                燃放了江湖奇珍 <span class="fw-name">[{{FW_NAME}}]</span>，引得万众瞩目。
+            </div>
+            <div class="fire-meta">
+                <span>📍 {{SERVER}}</span>
+                <span>🕒 {{TIME}}</span>
+            </div>
+        </div>
+    </script>
+</body>
+</html>

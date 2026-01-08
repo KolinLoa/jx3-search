@@ -1,0 +1,129 @@
+:root {
+    --gold: #c8a064;      /* 经典剑三金 */
+    --border: #5d4632;    /* 铜木色边框 */
+    --bg-dark: #0a0c10;   /* 深邃底色 */
+    --cyan: #00f2ff;      /* 赛博/全息路径色 */
+}
+
+body {
+    background: var(--bg-dark);
+    font-family: "Noto Serif SC", "Source Han Serif CN", serif; /* 使用衬线体更有韵味 */
+    margin: 0;
+}
+
+.container {
+    position: relative;
+    padding: 40px;
+    background: 
+        linear-gradient(rgba(10, 12, 16, 0.85), rgba(10, 12, 16, 0.85)),
+        url('https://www.jx3box.com/static/img/bg.jpg'); /* 可换成你本地的古风纹理 */
+    border: 3px solid var(--border);
+    box-shadow: inset 0 0 100px rgba(0,0,0,1);
+    display: inline-block;
+}
+
+/* 装饰性转角 */
+.container::before, .container::after {
+    content: "";
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border: 3px solid var(--gold);
+    z-index: 10;
+}
+.container::before { top: -5px; left: -5px; border-right: 0; border-bottom: 0; }
+.container::after { bottom: -5px; right: -5px; border-left: 0; border-top: 0; }
+
+.header {
+    text-align: center;
+    margin-bottom: 40px;
+    border-bottom: 2px dashed var(--border);
+    padding-bottom: 20px;
+}
+
+.title {
+    font-size: 48px;
+    font-weight: 900;
+    color: var(--gold);
+    text-shadow: 0 0 10px rgba(200, 160, 100, 0.5);
+    letter-spacing: 8px;
+}
+
+.time {
+    color: #888;
+    font-size: 16px;
+    margin-top: 10px;
+    font-family: sans-serif;
+}
+
+.boss-grid {
+    display: grid;
+    grid-template-columns: repeat(10, 100px);
+    grid-template-rows: repeat(10, 100px);
+    gap: 15px; /* 稍微增加间距 */
+    z-index: 5;
+}
+
+/* 路径连线增加发光效果 */
+.path-line {
+    fill: none;
+    stroke: var(--cyan);
+    stroke-width: 4;
+    stroke-dasharray: 10, 5;
+    filter: drop-shadow(0 0 8px var(--cyan));
+    opacity: 0.6;
+}
+
+/* 首领格子样式：模仿游戏 UI 槽位 */
+.boss-item {
+    width: 100px;
+    height: 100px;
+    background: rgba(40, 35, 30, 0.9);
+    border: 1px solid var(--border);
+    box-shadow: inset 0 0 15px rgba(0,0,0,0.8);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.boss-icon {
+    width: 70px;
+    height: 70px;
+    border: 1px solid #c8a064;
+    overflow: hidden;
+    position: relative;
+    background: #000;
+}
+
+.boss-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.9) contrast(1.1);
+}
+
+.boss-text-icon {
+    font-size: 36px;
+    color: var(--gold);
+    line-height: 70px;
+    text-align: center;
+}
+
+.boss-num {
+    position: absolute;
+    top: 2px;
+    left: 4px;
+    color: var(--gold);
+    font-size: 12px;
+    font-weight: bold;
+    font-family: 'Times New Roman', serif;
+}
+
+.boss-name {
+    font-size: 12px;
+    color: #e0d0b0;
+    margin-top: 6px;
+    white-space: nowrap;
+}

@@ -2,6 +2,9 @@ import { Context } from 'koishi'
 import JX3API from 'jx3api-ts'
 import type { Config } from '../config'
 
+export const name = 'jx3-websocket'
+
+
 export function applyWebSocket(ctx: Context) {
   // 定义定时器变量
   let reconnectTimer: NodeJS.Timeout
